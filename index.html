@@ -1,0 +1,175 @@
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
+</head>
+
+<body>
+    <div class="responsive-bar">
+        <div class="logo">
+            <img src="./assets/home4.png" alt="logo" />
+        </div>
+        <div class="menu">
+            <h4>Menu</h4>
+        </div>
+    </div>
+
+    <nav>
+        <div class="logo">
+            <img src="./assets/home4.png" alt="logo" />
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li class="dropdown">
+                <a href="course.html">Courses</a>
+              <ul class="dropdown-menu">
+                <li><a href="course.html">Web Design</a></li>
+                <li><a href="course.html">Tally</a></li>
+                <li><a href="course.html">Digital Marketing</a></li>
+              </ul>
+            
+            </li>
+            <li><a href="review.html">Reviews</a></li>
+            <li><a href="contact.html">Enquiry Us</a></li>
+            <li class="sign-in-wrapper"><a href="#" class="sign-in" id="sign-in" onclick="logout()">Logout</a></li>
+        </ul>
+      
+    </nav>
+    <div class="heading">
+        <span class="subheading">
+            "Live Project Training"
+        </span>
+      
+    </div>
+    <br>
+    <div class="container">
+        
+        <div class="image-container">
+            <div class="text-container">
+                <span class="heading-text">
+                   <h1> Various computer<br>
+                    Courses</h1>
+                </span>
+                <p>
+                    We, Newtech COMPUTER EDUCATION located at Ahmedabad
+                    is one of the leading computer training institutes since 1994,
+                    offering a wide range of international accounting courses. 
+                    The overall training structure is uniquely designed to give students 
+                    a successful career in the accounting field. 
+                    Our dedicated faculty is always ready to provide students with comprehensive knowledge in accounts,
+                    along with guidance on securing employment in the KPO sector with confidence and success.
+                    <br><br>
+                    <strong style="color: yellow !important;">USA | CANADA | AUSTRALIA | NEW ZEALAND | U.K.</strong>
+                </p>
+            </div>
+            <img id="dynamicImage" src="./assets/home1.png" alt="Slideshow Image">
+        </div>
+        <div class="progress-container">
+            <div class="circle-progress">
+                <svg width="120" height="120">
+                    <circle class="background" cx="60" cy="60" r="50"></circle>
+                    <circle class="progress" cx="60" cy="60" r="50"></circle>
+                </svg>
+                <div class="progress-text">
+                    <span class="progress-number">0</span>
+                    <span>+</span>
+                 
+                </div>
+            </div>
+        </div>
+        <span class="progress-text-container">Students taught</span>
+    </div>
+    <br>
+    <button type="button" class="btn" onclick="opencourselist()">Our Courses <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+    <div class="title">
+		<span class="title-text">Popular Subjects on Newtech Computer</span>
+	</div>
+	<br><br>
+    <div class="course">
+        <center>
+            <div class="cbox">
+                <div class="det"><a href="course.html"><img src="assets/myob.jpeg" alt="Book Icon">Myob</a></div>
+                <div class="det"><a href="course.html"><img src="assets/digitalmarketing.jpeg" alt="GATE Icon">Digital Marketing</a></div>
+                <div class="det"><a href="course.html"><img src="assets/xero.jpeg" alt="Paper Icon">Xero</a></div>
+                <div class="det"><a href="course.html"><img src="assets/tally.png" alt="Quiz Icon">Tally</a></div>
+            </div>
+        </center>
+    </div>
+    <section class="our-teachers">
+        <div class="section-heading">
+            <span class="subheading1">Best Expert Trainer</span>
+        </div>
+        <br>
+        <div class="section-text">
+            <span class="subheading-text">Our professional teachers</span>
+        </div>
+        <!-- Container for Teacher Cards -->
+        <div id="teacher-container" class="teacher-container"></div>
+    </section>
+    
+    <!-- Card Template -->
+    <template id="teacher-card-template">
+        <div class="teacher-card">
+            <img src="" alt="Teacher Photo" class="teacher-photo" />
+            <h3 class="teacher-name"></h3>
+            <p class="teacher-subject"></p>
+            <p class="teacher-experience"></p>
+        </div>
+    </template>
+    <div id="chatbot-icon">💬</div>
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-container">
+      <div id="chatbot-header">
+         <p>Newtech computer education</p>
+         <button id="close-btn" class="Fa fa-close" style="background-color:none !important;"></button>
+      </div>
+      <div id="chatbot-messages"></div>
+      <div id="chatbot-input-container">
+        <input type="text" id="chatbot-input" placeholder="Type a message..." />
+        <button id="chatbot-send">Send</button>
+      </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="./assets/home4.png" alt="logo" />
+                <p>Newtech Computer Education</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="course.html">Courses</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                    <li><a href="contact.html">Enquiry Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: Newtech@gmail.com</p>
+                <p>Phone: +91 9907869393</p>
+                <p>Address: A/44 Indraprasth corporate, Satellite, Ahmedabad, India</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <br>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Newtech Computer Education. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    
+<script src="script.js"></script>
+</body>

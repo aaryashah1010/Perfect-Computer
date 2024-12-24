@@ -1,0 +1,129 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <title>Courses with Coins</title>
+        <link rel="stylesheet" href="course.css">
+    </head>
+    <body>
+        <div class="responsive-bar">
+            <div class="logo">
+                <img src="./assets/home4.png" alt="logo" />
+            </div>
+            <div class="menu">
+                <h4>Menu</h4>
+            </div>
+        </div>
+
+        <nav>
+            <div class="logo">
+                <img src="./assets/home4.png" alt="logo" />
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li class="dropdown">
+                    <a href="course.html">Courses</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="course.html">Web Design</a></li>
+                        <li><a href="course.html">Tally</a></li>
+                        <li><a href="course.html">Digital Marketing</a></li>
+                    </ul>
+                </li>
+                <li><a href="review.html">Reviews</a></li>
+                <li><a href="contact.html">Enquiry Us</a></li>
+                <li class="sign-in-wrapper"><a href="#" class="sign-in" id="sign-in" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+
+        <section>
+            <div class="course-heading">
+                <!-- Centered Heading -->
+                <span style="font-size: 2rem; font-weight: bold;">Our Courses</span>
+
+                <!-- Round Button for Coins (Positioned on the right) -->
+                <div id="coins-button">
+                    1000
+                </div>
+            </div>
+
+            <!-- Filter, Sort, and Search -->
+            <div class="course-controls">
+                <input type="text" id="search-bar" placeholder="Search courses..." onkeyup="searchCourses()">
+                <select id="sort-select" onchange="sortCourses()">
+                    <option value="title-asc">Sort by Title (A-Z)</option>
+                    <option value="title-desc">Sort by Title (Z-A)</option>
+                    <option value="price-asc">Sort by Price (Low to High)</option>
+                    <option value="price-desc">Sort by Price (High to Low)</option>
+                </select>
+                <select id="filter-select" onchange="filterCourses()">
+                    <option value="all">All Courses</option>
+                    <option value="free">Free Courses</option>
+                    <option value="paid">Paid Courses</option>
+                </select>
+            </div>
+
+            <div class="course-container" id="course-container"></div>
+        
+        </section>
+        <section id="course-details-section" class="hidden">
+            <div id="course-details-content"></div>
+        </section>
+        <!--<button onclick="resetAllData()">Reset All Data</button> -->
+        <div id="chatbot-icon">💬</div>
+
+        <!-- Chatbot Container -->
+        <div id="chatbot-container">
+        <div id="chatbot-header">
+            <p>Newtech computer education</p>
+            <button id="close-btn" class="fa fa-close" style="background-color:none !important;"></button>
+        </div>
+        <div id="chatbot-messages"></div>
+        <div id="chatbot-input-container">
+            <input type="text" id="chatbot-input" placeholder="Type a message..." />
+            <button id="chatbot-send">Send</button>
+        </div>
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <img src="./assets/home4.png" alt="logo" />
+                    <p>Newtech Computer Education</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="course.html">Courses</a></li>
+                        <li><a href="review.html">Reviews</a></li>
+                        <li><a href="contact.html">Enquiry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p>Email: Newtech@gmail.com</p>
+                    <p>Phone: +91 9907869393</p>
+                    <p>Address: A/44 Indraprasth corporate, Satellite, Ahmedabad, India</p>
+                </div>
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <br>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Newtech Computer Education. All rights reserved.</p>
+            </div>
+        </footer>
+
+
+        <script src="course.js"></script>
+    </body>
+    </html>
