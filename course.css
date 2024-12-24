@@ -446,38 +446,41 @@ footer {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: none;
-  }
+}
 
-  #chatbot-header {
+#chatbot-header {
     background: #FA4B37;
     color: white;
     padding: 10px;
     text-align: center;
     display: flex;
-    gap: 55px;
+    justify-content: space-between;
+    align-items: center;
+}
 
-  }
-
-  #chatbot-messages {
+#chatbot-messages {
     height: 300px;
     overflow-y: auto;
     padding: 10px;
-  }
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between messages */
+}
 
-  #chatbot-input-container {
+#chatbot-input-container {
     display: flex;
     padding: 10px;
     background: #fff;
-  }
+}
 
-  #chatbot-input {
+#chatbot-input {
     flex: 1;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
+}
 
-  #chatbot-send {
+#chatbot-send {
     margin-left: 5px;
     background: #FA4B37;
     color: white;
@@ -485,9 +488,9 @@ footer {
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-  }
+}
 
-  #chatbot-icon {
+#chatbot-icon {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -500,14 +503,40 @@ footer {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-  }
-  .fa {
+}
+
+.user-message, .bot-message {
+    padding: 8px 12px;
+    border-radius: 15px;
     display: inline-block;
-    font: normal normal normal 14px / 1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: none !important;
-    border: none !important;
+    max-width: 70%; /* Limit the width of messages */
+    word-wrap: break-word;
+    margin: 5px 0;
+    clear: both;
+    position: relative;
+}
+
+.user-message {
+    background-color: #25D366; /* WhatsApp green */
+    color: white;
+    text-align: right;
+    align-self: flex-end;
+    border-radius: 15px 15px 0 15px; /* Rounded corners on the right */
+}
+
+.bot-message {
+    background-color: #ECE5DD; /* WhatsApp light grayish green */
+    color: black; /* Darker text color for better contrast */
+    text-align: left;
+    align-self: flex-start;
+    border-radius: 15px 15px 15px 0; /* Rounded corners on the left */
+}
+button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
 }

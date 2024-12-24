@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Qbook": { coins: "200", duration: "2 months" },
         "Myob": { coins: "400", duration: "2 months" },
     };
+
     let currentStep = null;
 
     const chatbotIcon = document.getElementById('chatbot-icon');
@@ -53,27 +54,34 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatbotMessages = document.getElementById('chatbot-messages');
     const chatbotInput = document.getElementById('chatbot-input');
     const chatbotSend = document.getElementById('chatbot-send');
+    const closebtn = document.getElementById('close-btn');
 
     chatbotIcon.addEventListener('click', () => {
         chatbotContainer.style.display =
             chatbotContainer.style.display === 'none' || chatbotContainer.style.display === '' ? 'block' : 'none';
-            if (chatbotContainer.style.display === 'block' && currentStep === null) {
-               
-                currentStep = "greet";  // Proceed to course selection step
-                processBotResponse('hi');
-            }
+        if (chatbotContainer.style.display === 'block' && currentStep === null) {
+            currentStep = "greet";  // Proceed to course selection step
+            processBotResponse('hi');
+        }
+    });
+
+    closebtn.addEventListener('click', () => {
+        chatbotContainer.style.display = 'none';
+    });
+
+    chatbotSend.addEventListener('click', sendMessage);
+    chatbotInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
     });
 
     function sendMessage() {
-        
         const userMessage = chatbotInput.value.trim().toLowerCase();
         if (!userMessage) return;
 
         const userMessageElem = document.createElement('div');
         userMessageElem.textContent = userMessage;
-        userMessageElem.style.textAlign = 'right';
+        userMessageElem.className = 'user-message';
         chatbotMessages.appendChild(userMessageElem);
-
         chatbotInput.value = '';
 
         processBotResponse(userMessage);
@@ -83,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function processBotResponse(userMessage) {
         let botMessage = "";
 
-        if (currentStep==="greet") {
+        if (currentStep === "greet") {
             botMessage = `<i class="fa-solid fa-robot"></i>Hello! I can help you with course information. Which course are you interested in? Here are the available courses:<br>` +
                 Object.keys(courses).map(course => `- ${course}`).join("<br>");
             currentStep = "courseSelection";
@@ -97,9 +105,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 setTimeout(() => {
                     createYesNoButtons();
                 }, 1000);
-                
             } else {
-                botMessage = ` <i class="fa-solid fa-robot"></i>Sorry, I couldn't find that course. Please choose from the available courses:<br>` +
+                botMessage = `<i class="fa-solid fa-robot"></i>Sorry, I couldn't find that course. Please choose from the available courses:<br>` +
                     Object.keys(courses).map(course => `- ${course}`).join("<br>");
             }
         } else if (currentStep === "continueConversation") {
@@ -113,30 +120,25 @@ document.addEventListener("DOMContentLoaded", function () {
         const buttonContainer = document.createElement('div');
         buttonContainer.style.display = 'flex';
         buttonContainer.style.justifyContent = 'center';
-        buttonContainer.style.gap = '10px'; // Space between buttons
+        buttonContainer.style.gap = '10px'; 
         buttonContainer.style.padding = '30px';
-    
+
         const yesButton = document.createElement('button');
         yesButton.textContent = "Yes";
         yesButton.style.background = 'yellow';
         yesButton.addEventListener('click', () => {
             displayBotMessage(`<i class="fa-solid fa-robot"></i>You can contact us at +91 9434783930. Thank you!`);
             
-            // Reset the chatbot process
             currentStep = null;
-        
-            // Close the chatbot container after a short delay
             setTimeout(() => {
                 chatbotContainer.style.display = 'none';
                 chatbotMessages.innerHTML = "";
             }, 3000);
         });
-        
-     
-    
+
         const noButton = document.createElement('button');
         noButton.textContent = "No";
-        noButton.style.background='green';
+        noButton.style.background = 'green';
         noButton.addEventListener('click', () => {
             displayBotMessage(`<i class="fa-solid fa-robot"></i>Thank you for chatting with us. Have a great day!`);
             currentStep = null;
@@ -146,30 +148,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 chatbotMessages.innerHTML = "";
             }, 2000);
         });
-    
+
         buttonContainer.appendChild(yesButton);
         buttonContainer.appendChild(noButton);
-    
+
         chatbotMessages.appendChild(buttonContainer);
     }
-    
 
     function displayBotMessage(message) {
         const botMessageElem = document.createElement('div');
         botMessageElem.innerHTML = message;
-        botMessageElem.style.textAlign = 'left';
+        botMessageElem.className = 'bot-message';
         chatbotMessages.appendChild(botMessageElem);
     }
+});
 
-    chatbotSend.addEventListener('click', sendMessage);
-    chatbotInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') sendMessage();
-    });
-    const closebtn=document.getElementById('close-btn');
-closebtn.addEventListener('click' , () =>{
-    chatbotContainer.style.display = 'none';
-});
-});
 
 function logout(){
     window.location.href = 'login.html';
